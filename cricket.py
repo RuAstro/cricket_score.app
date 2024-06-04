@@ -1,14 +1,25 @@
-from flask import Flask
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def home():
-    return """Cricket scoring app, to track score of the game. Makes scoring for coaches a lot easier and faster, so that there is not a 
-            moment to miss on the field. Everything by just a click of buttons. The feature of app will be updated regally. The 
-            idea of the app is to spare some time and have bit more outlook on whats happening on the field. And dont feel rush 
-            for next tracking ball that follows. User can log in with same username and password, when register."""
+    return "Calculation of Run Rate..."
+
+
+@app.route("/calculate", methods=["GET", "POST"])
+def calculate():
+    if request.method == "POST":
+        runs = int(request.form["runs"])
+        overs = int(request.form["overs"])
+        run_rate = calculate_run_rate(runs, overs)
+        return render_template("result.html", run_rate=run_rate)
+    return render_template("calculate.html")
+
+
+def calculate_run_rate(runs, overs):
+    return runs / overs
 
 
 if __name__ == "__main__":
