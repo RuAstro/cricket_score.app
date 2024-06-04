@@ -17,10 +17,10 @@
 - Will automatically declare winner after all batsmen are out, or when all runs are chased.
 
 # Formula for, RR, RRR, SR and SR Bowling.
-- *RR* = **number of runs** / **numbers of overs bowled**
-- *RRR* = **number of runs required of batting team(to win the match)** / **by total numbers of overs remaining in the match**
-- *SR* = **/ total number of runs they scored by number of deliveries they have faced x(multiply) by 100**
-- *SR Bowling* = **number of balls bawled** / **number of wickets taken with these balls**
+- *RR(Run Rate)* = **number of runs** / **numbers of overs bowled**
+- *RRR(Requested Run Rate)* = **number of runs required of batting team(to win the match)** / **by total numbers of overs remaining in the match**
+- *SR(Strike Rate)* = **/ total number of runs they scored by number of deliveries they have faced x(multiply) by 100**
+- *SR(Strike Rate) Bowling* = **number of balls bawled** / **number of wickets taken with these balls**
 
 # Technical Requirements
 - *Build in Python*
