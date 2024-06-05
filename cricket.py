@@ -13,13 +13,21 @@ def calculate():
     if request.method == "POST":
         runs = int(request.form["runs"])
         overs = int(request.form["overs"])
-        run_rate = calculate_run_rate(runs, overs)
-        return render_template("result.html", run_rate=run_rate)
+        target_runs = int(request.form["target_runs"])
+        remaining_overs = int(request.form["remaining_overs"])
+        run_rate, required_run_rate = calculate_run_rate(
+            runs, overs, target_runs, remaining_overs
+        )
+        return render_template(
+            "result.html", run_rate=run_rate, required_run_rate=required_run_rate
+        )
     return render_template("calculate.html")
 
 
-def calculate_run_rate(runs, overs):
-    return runs / overs
+def calculate_run_rate(runs, overs, target_runs, remaining_overs):
+    current_run_rate = runs / overs
+    required_run_rate = (target_runs - runs) / remaining_overs
+    return current_run_rate, required_run_rate
 
 
 if __name__ == "__main__":
