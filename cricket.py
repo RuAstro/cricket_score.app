@@ -5,7 +5,13 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Calculation of Run Rate..."
+    return """
+    <h1>Cricket Score calculation</h1>
+    <p>Click the button below to calculate the rates:</p>
+    <form method="get" action="/calculate">
+        <button type="submit">Calculate Run Rate</button>
+    </form>
+    """
 
 
 @app.route("/calculate", methods=["GET", "POST"])
