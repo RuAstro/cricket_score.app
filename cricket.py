@@ -1,6 +1,13 @@
 from flask import Flask, request, render_template
+import logging
 
 app = Flask(__name__)
+
+logging.basicConfig(
+    filename="app.log",
+    level=logging.DEBUG,
+    format="%(asctime)s %(levelname)s %(message)s",
+)
 
 
 @app.route("/")
@@ -24,6 +31,7 @@ def calculate():
         run_rate, required_run_rate = calculate_run_rate(
             runs, overs, target_runs, remaining_overs
         )
+        app.logger.info("Calculation successful")
         return render_template(
             "result.html", run_rate=run_rate, required_run_rate=required_run_rate
         )
