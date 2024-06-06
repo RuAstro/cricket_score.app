@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Strike Rate Calculator</title>
+</head>
+<body>
+    <h1>Cricket Strike Rate Calculator</h1>
+    
+    <h2>Batsmen Strike Rate Calculation</h2>
+    <form method="post" action="/calculate_batsmen_strike_rate">
+        Runs: <input type="text" name="runs"><br>
+        Balls Faced: <input type="text" name="balls_faced"><br>
+        <button type="submit">Calculate Batsmen Strike Rate</button>
+    </form>
+    
+    {% if batsmen_strike_rate %}
+    <h3>Batsmen Strike Rate: {{ batsmen_strike_rate }}</h3>
+    {% endif %}
+    
+    <h2>Bowler Strike Rate Calculation</h2>
+    <form method="post" action="/calculate_bowler_strike_rate">
+        Runs: <input type="text" name="runs"><br>
+        Balls Bowled: <input type="text" name="balls_bowled"><br>
+        <button type="submit">Calculate Bowler Strike Rate</button>
+    </form>
+    
+    {% if bowler_strike_rate %}
+    <h3>Bowler Strike Rate: {{ bowler_strike_rate }}</h3>
+    {% endif %}
+</body>
+</html>
