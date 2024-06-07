@@ -43,6 +43,7 @@ def calculate():
         overs = int(request.form["overs"])
         target_runs = int(request.form["target_runs"])
         remaining_overs = int(request.form["remaining_overs"])
+        log.debug("Calculating run rate")
         run_rate, required_run_rate = calculate_run_rate(
             runs, overs, target_runs, remaining_overs
         )
@@ -56,6 +57,7 @@ def calculate():
 def calculate_batsmen_strike_rate():
     runs = int(request.form["runs"])
     balls_faced = int(request.form["balls_faced"])
+    log.debug("Calculating batsmen strike rate")
     batsmen_strike_rate = (runs / balls_faced) * 100
     return f"<h2>Strike Rate: {batsmen_strike_rate:.2f}</h2>"
 
@@ -64,6 +66,7 @@ def calculate_batsmen_strike_rate():
 def calculate_bowler_strike_rate():
     runs = int(request.form["runs"])
     balls_bowled = int(request.form["balls_bowled"])
+    log.debug("Calculating bowler strike rate")
     bowler_strike_rate = (runs / balls_bowled) * 100
     return f"<h2>Strike Rate: {bowler_strike_rate:.2f}</h2>"
 
